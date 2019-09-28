@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+
+        
+    </style>
+</head>
+<body>
+    
+        <div class="menu">
+                <div id="imgOne" onclick="imgOne(this)"></div>
+                <div id="imgOne" onclick="imgOne(tag)"></div>    
+        </div>
+
+    <script>
+                var ban = document.getElementById("../../pictures/ban.png");
+        var menu = document.getElementsByClassName('menu');
+        var imgOne = document.getElementById('imgOne');
+        var img1 = document.getElementById('img1');
+
+        function image(tag) {
+            if (tag.id == 'img1') {
+                imgOne.innerHTML += "<img src='../../pictures/ban.png'>"
+            }
+        }
+    </script>
+</body>
+</html>
