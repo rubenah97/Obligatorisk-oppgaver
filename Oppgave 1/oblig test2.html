@@ -16,22 +16,30 @@
     body { 
         padding: 0;
         margin: 0;
+        
     }
     div.page {
 
         height: 100vh;
         display: grid;
-        grid-template-columns:auto 135px;
+        grid-template-columns:auto 245px;
         grid-template-rows: 80px auto;
         grid-template-areas:'header header'
                             'maincontent menu';
     }
-    div.header{
+    .header{
         background-color: red;
         grid-area: header;
+        overflow:-moz-hidden-unscrollable;
+        
     }
-    div.menu {
-        background-color: rgb(27, 223, 223);
+    .menu {
+        background:repeating-linear-gradient(
+        45deg,
+        rgb(255, 255, 255) 0%,
+        #3ad0e4 100%
+        )
+        no-repeat 50% 50% / 100% 100%;
         grid-area: menu;
         /* min-width: 135px;
         max-width: 135px; */
@@ -46,7 +54,7 @@
         max-height: 100%;
     }
 
-    div.maincontent {
+    .maincontent {
         max-width: 100%;
         background-color: white;
         grid-area: maincontent;
@@ -58,7 +66,6 @@
         )
         no-repeat 50% 50% / 100% 100%;
         text-align: center;
-        
     }     
          /* Menu Button */
 
@@ -115,7 +122,7 @@
     }
 
     .buttons {
-        width: 400px;
+        width: 300px;
         height: 80px;
         float: right;
     }
@@ -135,9 +142,8 @@
     .menu3 {
         background:repeating-linear-gradient(
         45deg,
-        rgb(189, 177, 7) 0%,
-        #1dbe38 100%
-        )
+        #fa0000 0%,
+        rgb(0, 246, 246) 100%)
         no-repeat 50% 50% / 100% 100%;
     }
     .menu4 {
@@ -156,6 +162,126 @@
         )
         no-repeat 50% 50% / 100% 100%;
     }
+    .menu6 {
+        background:repeating-linear-gradient(
+        45deg,
+        rgb(0, 0, 0) 0%,
+        #ff0000 100%
+        )
+        no-repeat 50% 50% / 100% 100%;
+    }
+    .menu7 {
+        background:repeating-linear-gradient(
+        45deg,
+        rgb(255, 255, 255) 0%,
+        #3ad0e4 100%
+        )
+        no-repeat 50% 50% / 100% 100%;
+    }
+
+
+    .main1 {
+        background:repeating-linear-gradient(
+        45deg,
+        rgb(0, 0, 0) 0%,
+        #ff0000 100%
+        )
+        no-repeat 50% 50% / 100% 100%;
+    }
+    
+    .main2 {
+        background:repeating-linear-gradient(
+        45deg,
+        rgb(255, 0, 0) 0%,
+        rgb(17, 0, 255) 100%
+        )
+        no-repeat 50% 50% / 100% 100%;
+    }
+    
+    .main3 {
+        background:repeating-linear-gradient(
+        45deg,
+        rgb(255, 255, 255) 0%,
+        hsl(34, 100%, 50%) 100%
+        )
+        no-repeat 50% 50% / 100% 100%;
+    }
+    
+    .main4 {
+        background:repeating-linear-gradient(
+        45deg,
+        rgb(1, 195, 11) 0%,
+        #ff0095 100%
+        )
+        no-repeat 50% 50% / 100% 100%;
+    }
+    .main5 {
+        background:repeating-linear-gradient(
+        45deg,
+        rgb(0, 0, 0) 0%,
+        #00e1ff 100%
+        )
+        no-repeat 50% 50% / 100% 100%;
+    }
+
+    .main6 {
+        background:repeating-linear-gradient(
+        45deg,
+        #425285 0%,
+        #e0dc03 100%
+        )
+        no-repeat 50% 50% / 100% 100%;
+    }
+    .head1 {
+        background:repeating-linear-gradient(
+        45deg,
+        #ffffff 0%,
+        #000000 100%
+        )
+        no-repeat 50% 50% / 100% 100%;
+    }
+    .head2 {
+        background:repeating-linear-gradient(
+        45deg,
+        #000000 0%,
+        #ffffff 100%
+        )
+        no-repeat 50% 50% / 100% 100%;
+    }
+    .head3 {
+        background:repeating-linear-gradient(
+        45deg,
+        #003bfd 0%,
+        #00ff15 100%
+        )
+        no-repeat 50% 50% / 100% 100%;
+    }
+    .head4 {
+        background:repeating-linear-gradient(
+        45deg,
+        #ff0000 0%,
+        #1900ff 100%
+        )
+        no-repeat 50% 50% / 100% 100%;
+    }
+    .head5 {
+        background:repeating-linear-gradient(
+        45deg,
+        #00ff0d 0%,
+        #e0dc03 100%
+        )
+        no-repeat 50% 50% / 100% 100%;
+    }
+    .head6 {
+        background:repeating-linear-gradient(
+        45deg,
+        #af01a198 0%,
+        #e0dc03 100%
+        )
+        no-repeat 50% 50% / 100% 100%;
+    }
+
+    
 </style>
 </head>
 
@@ -164,7 +290,7 @@
     <!-- css grid div -->
 
     <div class="page">
-        <div class="header">
+        <div class="header" id="div3">
             <div id="mySidenav" class="sidenav">
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                 <a href="#" id="img1" onclick="image1()">Img1</a>
@@ -173,14 +299,37 @@
                 <a href="#" id="img4" onclick="image4()">Img4</a>
                 <a href="#" id="img5" onclick="image5()">Img5</a>
                 <a href="#" id="img6" onclick="image6()">Img6</a>
+                <a href="#" id="img7" onclick="image7()">Img7</a>
+                <a href="#" id="img8" onclick="image8()">Img8</a>
+                <a href="#" id="img9" onclick="image9()">Img9</a>
+                <a href="#" id="img10" onclick="image10()">Img10</a>
+                <a href="#" id="imgClear" onclick="imageClear()">Image Clear</a>
             </div> 
             <div class="buttons">
-                <button id="btn" onclick="knapp1(this)">Color1</button>
-                <button id="btn" onclick="knapp2(this)">Color2</button>
-                <button id="btn" onclick="knapp3(this)">Color3</button>
-                <button id="btn" onclick="knapp4(this)">Color4</button>
-                
+                <button id="btn" onclick="knapp1(this)">Menu1</button>
+                <button id="btn" onclick="knapp2(this)">Menu2</button>
+                <button id="btn" onclick="knapp3(this)">Menu3</button>
+                <button id="btn" onclick="knapp4(this)">Menu4</button>
+                <button id="btn" onclick="knapp5(this)">Menu5</button>
+                <button id="btn" onclick="knapp6(this)">Remove</button>
             </div>
+            <div class="buttons">
+                <button id="btn" onclick="knapp7(this)">Main1</button>
+                <button id="btn" onclick="knapp8(this)">Main2</button>
+                <button id="btn" onclick="knapp9(this)">Main3</button>
+                <button id="btn" onclick="knapp10(this)">Main4</button>
+                <button id="btn" onclick="knapp11(this)">Main5</button>
+                <button id="btn" onclick="knapp12(this)">Remove</button>
+            </div>
+            <div class="buttons">
+                <button id="btn" onclick="knapp13(this)">Head1</button>
+                <button id="btn" onclick="knapp14(this)">Head2</button>
+                <button id="btn" onclick="knapp15(this)">Head3</button>
+                <button id="btn" onclick="knapp16(this)">Head4</button>
+                <button id="btn" onclick="knapp17(this)">Head5</button>
+                <button id="btn" onclick="knapp18(this)">Remove</button>
+            </div>
+
             <span class="btn" style="font-size:60px;cursor:pointer" onclick="openNav()">&#9776; </span>                     
         </div>
         <div class="menu" id="div1">
@@ -188,7 +337,7 @@
                 <div id="imgOne"></div>    
                 
         </div>
-        <div class="maincontent">
+        <div class="maincontent" id="div2">
                              <!-- Number Guesser -->
             <h1 class="ng" >Number Guesser</h1>
             <div class="container">
@@ -208,13 +357,16 @@
 
         var menu = document.getElementsByClassName('menu');
         var imgOne = document.getElementById('imgOne');
-        var div1 = document.getElementById('div1')
+
+
+                        // menu colors
 
         function knapp1(clickedElement) {
             clickedElement.classList.add('menu2');
             div1.classList.remove('menu3');
             div1.classList.remove('menu4');
             div1.classList.remove('menu5');
+            div1.classList.remove('menu6');
             div1.classList.add('menu2');
         }
 
@@ -223,6 +375,7 @@
             div1.classList.remove('menu2');
             div1.classList.remove('menu4');
             div1.classList.remove('menu5');
+            div1.classList.remove('menu6');
             div1.classList.add('menu3');
         }
         function knapp3(clickedElement) {
@@ -230,6 +383,7 @@
             div1.classList.remove('menu2');
             div1.classList.remove('menu3');
             div1.classList.remove('menu5');
+            div1.classList.remove('menu6');
             div1.classList.add('menu4');
         }
         function knapp4(clickedElement) {
@@ -237,27 +391,182 @@
             div1.classList.remove('menu2');
             div1.classList.remove('menu3');
             div1.classList.remove('menu4');
+            div1.classList.remove('menu6');
             div1.classList.add('menu5');
         }
+        function knapp5(clickedElement) {
+            clickedElement.classList.add('menu6');
+            div1.classList.remove('menu2');
+            div1.classList.remove('menu3');
+            div1.classList.remove('menu4');
+            div1.classList.remove('menu5');
+            div1.classList.add('menu6');
+        }
+        function knapp6(clickedElement) {
+            clickedElement.classList.add('menu7')
+            div1.classList.remove('menu2');
+            div1.classList.remove('menu3');
+            div1.classList.remove('menu4');
+            div1.classList.remove('menu5');
+            div1.classList.remove('menu6');
+            
+        }
+
+                        // Maincontent colors
+
+
+        function knapp7(clickedElement) {
+            clickedElement.classList.add('main1');
+            div2.classList.add('main1')
+            div2.classList.remove('main2');
+            div2.classList.remove('main3');
+            div2.classList.remove('main4');
+            div2.classList.remove('main5');
+            
+        }
+        function knapp8(clickedElement) {
+            clickedElement.classList.add('main2');
+            div2.classList.remove('main1');
+            div2.classList.add('main2');
+            div2.classList.remove('main3');
+            div2.classList.remove('main4');
+            div2.classList.remove('main5');
+            
+        }
+        function knapp9(clickedElement) {
+            clickedElement.classList.add('main3');
+            div2.classList.remove('main1');
+            div2.classList.remove('main2');
+            div2.classList.add('main3');
+            div2.classList.remove('main4');
+            div2.classList.remove('main5');
+            
+        }
+        function knapp10(clickedElement) {
+            clickedElement.classList.add('main4');
+            div2.classList.remove('main1');
+            div2.classList.remove('main2');
+            div2.classList.remove('main3');
+            div2.classList.add('main4');
+            div2.classList.remove('main5');
+            
+        }
+        function knapp11(clickedElement) {
+            clickedElement.classList.add('main5');
+            div2.classList.remove('main1');
+            div2.classList.remove('main2');
+            div2.classList.remove('main3');
+            div2.classList.remove('main4');
+            div2.classList.add('main5');
+            
+            
+        }
+        function knapp12(clickedElement) {
+            clickedElement.classList.add('main6');
+            div2.classList.remove('main1');
+            div2.classList.remove('main2');
+            div2.classList.remove('main3');
+            div2.classList.remove('main4');
+            div2.classList.remove('main5');
+            
+        }
+
+                    // Header colors
+
+        function knapp13(clickedElement) {
+            clickedElement.classList.add('head1');
+            div3.classList.add('head1');
+            div3.classList.remove('head2');
+            div3.classList.remove('head3');
+            div3.classList.remove('head4');
+            div3.classList.remove('head5');
+            
+        }
+        function knapp14(clickedElement) {
+            clickedElement.classList.add('head2');
+            div3.classList.remove('head1');
+            div3.classList.add('head2');
+            div3.classList.remove('head3');
+            div3.classList.remove('head4');
+            div3.classList.remove('head5');
+            
+        }
+        function knapp15(clickedElement) {
+            clickedElement.classList.add('head3');
+            div3.classList.remove('head1');
+            div3.classList.remove('head2');
+            div3.classList.add('head3');
+            div3.classList.remove('head4');
+            div3.classList.remove('head5');
+            
+        }
+        function knapp16(clickedElement) {
+            clickedElement.classList.add('head4');
+            div3.classList.remove('head1');
+            div3.classList.remove('head2');
+            div3.classList.remove('head3');
+            div3.classList.add('head4');
+            div3.classList.remove('head5');
+            
+        }
+          function knapp17(clickedElement) {
+            clickedElement.classList.add('head5');
+            div3.classList.remove('head1');
+            div3.classList.remove('head2');
+            div3.classList.remove('head3');
+            div3.classList.remove('head4');
+            div3.classList.add('head5');
+            
+        }
+        function knapp18(clickedElement) {
+            clickedElement.classList.add('head6');
+            div3.classList.remove('head1');
+            div3.classList.remove('head2');
+            div3.classList.remove('head3');
+            div3.classList.remove('head4');
+            div3.classList.remove('head5');
+            
+        }
+
+
 
 
         function image1() {
-            imgOne.innerHTML += "<img src='../../pictures/ban.png'>"
+            imgOne.innerHTML += "<img src='https://cdn.discordapp.com/emojis/614234072130125874.png?v=1'>"
         }
         function image2() {
-            imgOne.innerHTML += "<img src='../../pictures/blind.png'>"
+            imgOne.innerHTML += "<img src='https://cdn.discordapp.com/emojis/614234075821244418.png?v=1'>"
         }
         function image3() {
-            imgOne.innerHTML += "<img src='../../pictures/mad.png'>"
+            imgOne.innerHTML += "<img src='https://cdn.discordapp.com/emojis/609462165337800710.png?v=1 '>"
         }
         function image4() {
-            imgOne.innerHTML += "<img src='../../pictures/derp.png'>"
+            imgOne.innerHTML += "<img src='https://cdn.discordapp.com/emojis/614234074302775308.png?v=1'>"
         }
         function image5() {
-            imgOne.innerHTML += "<img src='../../pictures/gun.png'>"
+            imgOne.innerHTML += "<img src='https://cdn.discordapp.com/emojis/620750690985312276.png?v=1'>"
         }
         function image6() {
-            imgOne.innerHTML += "<img src='../../pictures/hug.png'>"
+            imgOne.innerHTML += "<img src='https://cdn.discordapp.com/emojis/620741773613858816.png?v=1'>"
+        }
+        
+        function image7() {
+            imgOne.innerHTML += "<img src='https://cdn.discordapp.com/emojis/609462159336013840.png?v=1'>"
+        }
+        
+        function image8() {
+            imgOne.innerHTML += "<img src='https://cdn.discordapp.com/emojis/614249609866510363.png?v=1'>"
+        }
+        
+        function image9() {
+            imgOne.innerHTML += "<img src='https://cdn.discordapp.com/emojis/620741773018398750.png?v=1'>"
+        }
+        
+        function image10() {
+            imgOne.innerHTML += "<img src='https://cdn.discordapp.com/emojis/614249606263341056.png?v=1'>"
+        }
+        function imageClear() {
+            imgOne.innerHTML = " "
         }
 
         function openNav() {
@@ -308,11 +617,12 @@
 
 
                     // Check if won
-            if(guess === winningNum){
+            else if(guess === winningNum){
                         // Game over - won
                 gameOver(true, winningNum + ' is correct! YOU WIN!');
                         
-            } else {
+            } 
+            else {
                         // Wrong number
                 guessesLeft -= 1;
                         
