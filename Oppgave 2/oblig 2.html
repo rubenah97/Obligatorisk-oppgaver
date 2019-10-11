@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Document</title>
+
+
+    <style>
+    
+    .selected {
+        stroke: black;
+        stroke-width: 0.5;
+    }
+    
+    rect:hover{
+        cursor: pointer;
+    }
+    
+    </style>
+</head>
+<body>
+    <div>
+        <svg id="chart" width="500" viewBox="0 0 80 60"  ></svg>
+    </div>
+    Valgt stolpe: <i id="choose">ingen</i><br />
+    Verdi: <input type="number" min="1" max="10" onclick="add()" /><button>Legg til stolpe</button>
+    <button id="btn" onclick="change()" disabled>Endre valgt stolpe</button><br />
+    <button id="btn2" onclick="remove()" disabled>Fjerne valgt stolpe</button>
+    
+    <script>
+        let numbers = [7, 3, 1, 5, 8];
+        var svgTag = document.getElementById('chart');
+        var button = document.getElementById('btn')
+        var button2 = document.getElementById('btn2')
+        var selectedBar = null;
+
+        showChart();
+    
+        function showChart(barNo) {
+            let svgInnerHtml = '';
+            for (let i = 0; i < numbers.length; i++) {
+                svgInnerHtml += createBar(numbers[i], i + 1);
+            }
+            svgTag.innerHTML = svgInnerHtml;
+
+            var info = document.getElementById('choose');
+            if (selectedBar === null) {
+                info.innerHTML = 'ingen';
+            }
+            else {
+                info.innerHTML = `${barNo} `;
+            }
+
+            
+        }
+    
+        function createBar(number, barNo) {
+            const width = 8;
+            const spacing = 2;
+            let x = (barNo-0.8) * (width + spacing);
+            let height = number * 7;
+            let y = 60 - height;
+            let color = calcColor(1, 10, barNo);
+            let stroke;
+            if (barNo == selectedBar){
+                stroke = "class='selected'"
+            }
+            return `<rect onclick="chooseRect(${barNo})" width="${width}" height="${height}" ${stroke}
+            x="${x}" y="${y}" fill="${color}" ></rect>`;
+        }
+    
+        function calcColor(min, max, val) {
+            var minHue = 200, maxHue = 0;
+            var curPercent = (val - min) / (max - min);
+            var colString = "hsl(" + ((curPercent * (maxHue - minHue)) + minHue) + ",100%,50%)";
+            return colString;
+        }
+
+        function chooseRect(stolpe) { 
+            if (stolpe == selectedBar) {
+                selectedBar = null;
+                btn.disabled = true;
+                btn2.disabled = true;
+            }
+            else {
+                selectedBar = stolpe;
+                btn.disabled = false;
+                btn2.disabled = false;
+            }
+            showChart(stolpe);
+        }
+
+        function remove() {
+            
+        }
+        
+        function change(){
+
+        }
+
+        function add(){
+
+        }
+    </script>
+    
+</body>
+</html>
