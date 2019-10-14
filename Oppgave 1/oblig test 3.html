@@ -2,25 +2,24 @@
 <html lang="en">
 <head>
     <title>Document</title>
-    <!------------------- STYLE START  ------------------->
     <style>
-    
+
     * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
     }
-    
+
             /* CSS GRID */
-    
-    
+
+
     body { 
         padding: 0;
         margin: 0;
         
     }
     div.page {
-    
+
         height: 100vh;
         display: grid;
         grid-template-columns:auto 245px;
@@ -44,7 +43,7 @@
         grid-area: menu;
         /* min-width: 135px;
         max-width: 135px; */
-        width: 100%;    
+        width: 100%;
         height: 100%;
         overflow:auto;
     }
@@ -54,7 +53,7 @@
         height: 100%;
         max-height: 100%;
     }
-    
+
     .maincontent {
         max-width: 100%;
         background-color: white;
@@ -69,11 +68,11 @@
         text-align: center;
     }     
          /* Menu Button */
-    
+
     body {
         font-family: "Lato", sans-serif;
     }
-    
+
     .sidenav {
         height: 100%;
         width: 0;
@@ -85,6 +84,7 @@
         overflow-x: hidden;
         transition: 0.5s;
         padding-top: 60px;
+
     }
     .sidenav a {
         padding: 8px 8px 8px 32px;
@@ -94,11 +94,12 @@
         display: block;
         transition: 0.3s;
     }
-    
+
     .sidenav a:hover {
       color: #f1f1f1;
+      
     }
-    
+
     .sidenav .closebtn {
         position: absolute;
         top: 0;
@@ -106,12 +107,12 @@
         font-size: 36px;
         margin-left: 50px;
     }
-    
+
     @media screen and (max-height: 450px) {
         .sidenav {padding-top: 15px;}
         .sidenav a {font-size: 18px;}
     }
-    
+
     .btn {
         margin: 0px;
         padding: 10px;
@@ -119,48 +120,39 @@
         border: solid black;
         background-color: black;;
         color: gold;
+
+    }
+
+    .diver {
+        background-color: white;
+        width: 100px;
+        height: 100px;
+        margin: 10px;
+        border: solid black;      
+        font-size:85px;
+           
+    }
+    .container {
+        display: grid;
+		grid-template-columns: 33% 33% 33%;
+        width: 400px;
+        padding: auto;
+        margin: auto;
+        
+    }
+
+    .diver:hover {
+        cursor: pointer;
+    }
+    #info {
+        width: 385px;
+        height: 50px;
     
     }
-    
-    .buttons {
-        width: 300px;
-        height: 80px;
-        float: right;
+    .a:hover{
+        pointer-events: none;
     }
-    button  {
-        height: 40px;
-        width: 95px;
-    }
-    
-    .menu2 {
-        background:repeating-linear-gradient(
-        45deg,
-        rgb(189, 177, 7) 0%,
-        #be1d1d 100%
-        )
-        no-repeat 50% 50% / 100% 100%;
-    }
-    
-    .main1 {
-        background:repeating-linear-gradient(
-        45deg,
-        rgb(0, 0, 0) 0%,
-        #ff0000 100%
-        )
-        no-repeat 50% 50% / 100% 100%;
-    }
-    
-    .head1 {
-        background:repeating-linear-gradient(
-        45deg,
-        #ffffff 0%,
-        #000000 100%
-        )
-        no-repeat 50% 50% / 100% 100%;
-    }
-    
-    </style>
-        <!------------------- STYLE END  ------------------->
+</style>
 </head>
 
 <body>
@@ -171,20 +163,18 @@
         <div class="header" id="div3">
             <div id="mySidenav" class="sidenav">
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-           
+                <a href="#" id="img1" onclick="image1()">Img1</a>
+                <a href="#" id="img2" onclick="image2()">Img2</a>
+                <a href="#" id="img3" onclick="image3()">Img3</a>
+                <a href="#" id="img4" onclick="image4()">Img4</a>
+                <a href="#" id="img5" onclick="image5()">Img5</a>
+                <a href="#" id="img6" onclick="image6()">Img6</a>
+                <a href="#" id="img7" onclick="image7()">Img7</a>
+                <a href="#" id="img8" onclick="image8()">Img8</a>
+                <a href="#" id="img9" onclick="image9()">Img9</a>
+                <a href="#" id="img10" onclick="image10()">Img10</a>
+                <a href="#" id="imgClear" onclick="imageClear()">Image Clear</a>
             </div> 
-            <div class="buttons">
-                <button id="btn" onclick="knapp1(this)">Menu1</button>
-            
-            </div>
-            <div class="buttons">
-                <button id="btn" onclick="knapp2(this)">Main1</button>
-               
-            </div>
-            <div class="buttons">
-                <button id="btn" onclick="knapp3(this)">Head1</button>
-
-            </div>
 
             <span class="btn" style="font-size:60px;cursor:pointer" onclick="openNav()">&#9776; </span>                     
         </div>
@@ -194,132 +184,132 @@
                 
         </div>
         <div class="maincontent" id="div2">
-                             <!-- Number Guesser -->
-            <h1 class="ng" >Number Guesser</h1>
             <div class="container">
-                <div id="game">
-                    <p>Guess a number between <span class="min-num">1</span> and <span class="max-num">10</span></p>
-                    <input type="number" id="guess-input" placeholder="Enter your guess...">
-                    <input type="submit" value="Submit" id="guess-btn">
-                    <p class="message"></p>
-                </div>
+                <div id="1" class="diver" onclick="box(this)">-</div>
+                <div id="2" class="diver" onclick="box(this)">-</div>
+                <div id="3" class="diver" onclick="box(this)">-</div>
+                <div id="4" class="diver" onclick="box(this)">-</div>
+                <div id="5" class="diver" onclick="box(this)">-</div>
+                <div id="6" class="diver" onclick="box(this)">-</div>
+                <div id="7" class="diver" onclick="box(this)">-</div>
+                <div id="8" class="diver" onclick="box(this)">-</div>
+                <div id="9" class="diver" onclick="box(this)">-</div>
+                <div id="info"></div>
+
             </div>   
         </div>
     </div> 
-    
+
     <script>
-        
-        // Img adder og color changer
-        
-        var menu = document.getElementsByClassName('menu');
-        var imgOne = document.getElementById('imgOne');
-        
-        document.onload = knapp1();
-        document.onload = knapp2();
-        document.onload = knapp3();
-        
-        // menu colors
-        
-        function knapp1(clickedElement) {
+        var teller = 0;
+            info = document.getElementById('info')
+            d1 = document.getElementById('1');
+            d2 = document.getElementById('2');
+            d3 = document.getElementById('3');
+            d4 = document.getElementById('4');
+            d5 = document.getElementById('5');
+            d6 = document.getElementById('6');
+            d7 = document.getElementById('7');
+            d8 = document.getElementById('8');
+            d9 = document.getElementById('9');
+            diver = document.getElementsByClassName('diver');
+            container = document.getElementsByClassName('container');
+            imgOne = document.getElementById('imgOne');
 
-            var hexValues = ["0","1","2","3","4","5","6","7","8","9","a","b","c","d","e"];
-
-            function populate(a) {
-                for ( var i = 0; i < 6; i++ ) {
-                    var x = Math.round( Math.random() * 14 );
-                    var y = hexValues[x];
-                    a += y;
-                }
-                return a;
+        function box(buttonClicked){
+            teller ++;
+            if (teller == 1 && buttonClicked.innerHTML == '-') {
+                buttonClicked.innerHTML = 'X'
             }
-                var newColor1 = populate('#');
-                var newColor2 = populate('#');
-                var angle = Math.round( Math.random() * 360 );
-
-                var gradient = "linear-gradient(" + angle + "deg, " + newColor1 + ", " + newColor2 + ")";
-
-                document.getElementById("div1").style.background = gradient;
-                clickedElement.style.background = gradient;
+            else if (teller == 2 && buttonClicked.innerHTML == '-') {
+                buttonClicked.innerHTML = 'O'
+                teller = 0
             }
-        function knapp2(clickedElement) {
-
-            var hexValues = ["0","1","2","3","4","5","6","7","8","9","a","b","c","d","e"];
-
-            function populate(a) {
-                for ( var i = 0; i < 6; i++ ) {
-                    var x = Math.round( Math.random() * 14 );
-                    var y = hexValues[x];
-                    a += y;
-                }   
-                return a;
+            else {
+                teller --
             }
-                var newColor1 = populate('#');
-                var newColor2 = populate('#');
-                var angle = Math.round( Math.random() * 360 );
-
-                var gradient = "linear-gradient(" + angle + "deg, " + newColor1 + ", " + newColor2 + ")";
-
-                document.getElementById("div3").style.background = gradient;
-
-                clickedElement.style.background = gradient;
-            }
-        function knapp3(clickedElement) {
-
-            var hexValues = ["0","1","2","3","4","5","6","7","8","9","a","b","c","d","e"];
-
-            function populate(a) {
-                for ( var i = 0; i < 6; i++ ) {
-                    var x = Math.round( Math.random() * 14 );
-                    var y = hexValues[x];
-                    a += y;
-                }
-                return a;
-            }
-                var newColor1 = populate('#');
-                var newColor2 = populate('#');
-                var angle = Math.round( Math.random() * 360 );
-
-                var gradient = "linear-gradient(" + angle + "deg, " + newColor1 + ", " + newColor2 + ")";
-
-                document.getElementById("div2").style.background = gradient;
-
-                clickedElement.style.background = gradient;
-            }
-        
-
+            if ((d1.innerHTML == 'X' && d2.innerHTML == 'X' && d3.innerHTML == 'X') || 
+                (d4.innerHTML == 'X' && d5.innerHTML == 'X' && d6.innerHTML == 'X') ||
+                (d7.innerHTML == 'X' && d8.innerHTML == 'X' && d9.innerHTML == 'X') ||
+                (d1.innerHTML == 'X' && d5.innerHTML == 'X' && d9.innerHTML == 'X') ||
+                (d7.innerHTML == 'X' && d5.innerHTML == 'X' && d3.innerHTML == 'X') ||
+                (d1.innerHTML == 'X' && d4.innerHTML == 'X' && d7.innerHTML == 'X') ||
+                (d2.innerHTML == 'X' && d5.innerHTML == 'X' && d8.innerHTML == 'X') ||
+                (d3.innerHTML == 'X' && d6.innerHTML == 'X' && d9.innerHTML == 'X')
+                ){
+                info.innerHTML = 'X winner';
+                teller ++;
+                teller ++;
+            }  
+            if ((d1.innerHTML == 'O' && d2.innerHTML == 'O' && d3.innerHTML == 'O') || 
+                (d4.innerHTML == 'O' && d5.innerHTML == 'O' && d6.innerHTML == 'O') ||
+                (d7.innerHTML == 'O' && d8.innerHTML == 'O' && d9.innerHTML == 'O') ||
+                (d1.innerHTML == 'O' && d5.innerHTML == 'O' && d9.innerHTML == 'O') ||
+                (d7.innerHTML == 'O' && d5.innerHTML == 'O' && d3.innerHTML == 'O') ||
+                (d1.innerHTML == 'O' && d4.innerHTML == 'O' && d7.innerHTML == 'O') ||
+                (d2.innerHTML == 'O' && d5.innerHTML == 'O' && d8.innerHTML == 'O') ||
+                (d3.innerHTML == 'O' && d6.innerHTML == 'O' && d9.innerHTML == 'O')
+                ){
+                info.innerHTML = 'O winner';
+                teller ++;
+                teller ++;
+            } 
+            console.log(teller);
             
+        }
+            // Img adder og color changer
+
+
+        // her har jeg bare funskjoner for knappene inne i menyen som legger til et bilde i imgOne sin innerHTML
+        function image1() {
+            imgOne.innerHTML += "<img src='https://cdn.discordapp.com/emojis/614234072130125874.png?v=1'>"
+        }
+        function image2() {
+            imgOne.innerHTML += "<img src='https://cdn.discordapp.com/emojis/614234075821244418.png?v=1'>"
+        }
+        function image3() {
+            imgOne.innerHTML += "<img src='https://cdn.discordapp.com/emojis/609462165337800710.png?v=1 '>"
+        }
+        function image4() {
+            imgOne.innerHTML += "<img src='https://cdn.discordapp.com/emojis/614234074302775308.png?v=1'>"
+        }
+        function image5() {
+            imgOne.innerHTML += "<img src='https://cdn.discordapp.com/emojis/620750690985312276.png?v=1'>"
+        }
+        function image6() {
+            imgOne.innerHTML += "<img src='https://cdn.discordapp.com/emojis/620741773613858816.png?v=1'>"
+        }
         
-                        // Maincontent colors
-
-                        
-     
-
+        function image7() {
+            imgOne.innerHTML += "<img src='https://cdn.discordapp.com/emojis/609462159336013840.png?v=1'>"
+        }
         
-                    // Header colors
-                    
-      
-            
+        function image8() {
+            imgOne.innerHTML += "<img src='https://cdn.discordapp.com/emojis/614249609866510363.png?v=1'>"
+        }
         
+        function image9() {
+            imgOne.innerHTML += "<img src='https://cdn.discordapp.com/emojis/620741773018398750.png?v=1'>"
+        }
+        
+        function image10() {
+            imgOne.innerHTML += "<img src='https://cdn.discordapp.com/emojis/614249606263341056.png?v=1'>"
+        }
+        function imageClear() {
+            imgOne.innerHTML = " "
+        }
 
-        </script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
 
 
 
-<!-- 
-
-Gradient SYNTAX
-background-image: linear-gradient(direction, color-stop1, color-stop2, ...);
-
-Exampel
-#grad {
-  background-image: linear-gradient(red, yellow);
-}
-
- -->
-
-
-
-
-
+    </script>
+    
 </body>
 </html>
