@@ -6,7 +6,14 @@
 
 
     <style>
-    
+     * {
+        user-select: none;
+    }
+    .chartGrid {
+        width:500px;
+        
+    }
+
     .selected {
         stroke: black;
         stroke-width: 0.5;
@@ -15,62 +22,78 @@
     rect:hover{
         cursor: pointer;
     }
+    svg {
+        overflow:visible
+    }
+    button:hover {
+        cursor: pointer;
+    }
     
     </style>
 </head>
 <body>
-    <div>
-        <svg id="chart" width="500" viewBox="0 0 80 60"  ></svg>
-    </div>
-    Valgt stolpe: <i id="choose">ingen</i><br />
-    Verdi: <input type="number" min="1" max="10" onclick="add()" /><button>Legg til stolpe</button>
-    <button id="btn" onclick="change()" disabled>Endre valgt stolpe</button><br />
-    <button id="btn2" onclick="remove()" disabled>Fjerne valgt stolpe</button>
-    
-    <script>
+
+        <div class="chartGrid">
+            <svg id="chart" class="chartBox" viewBox="-2 -45 85 105" ></svg>
+        </div>
+
+            Valgt stolpe: <i id="choose">ingen</i><br />
+            Verdi: <input id="input"type="number" min="1" max="10"  /><button onclick="add()">Legg til stolpe</button>
+            <button id="btn3" onclick="random()">Legg til random</button><br />
+            <button id="btn" onclick="change()" disabled>Endre valgt stolpe</button>
+            <button id="btn2" onclick="remove()" disabled>Fjerne valgt stolpe</button>
+        
+        <script>
         let numbers = [7, 3, 1, 5, 8];
         var svgTag = document.getElementById('chart');
         var button = document.getElementById('btn')
         var button2 = document.getElementById('btn2')
         var selectedBar = null;
+        var input = document.getElementById('input');
+        var min = 1;
+        var max = 10;
+        var barNo;
 
+        
         showChart();
-    
         function showChart(barNo) {
             let svgInnerHtml = '';
             for (let i = 0; i < numbers.length; i++) {
                 svgInnerHtml += createBar(numbers[i], i + 1);
             }
             svgTag.innerHTML = svgInnerHtml;
-
+            
             var info = document.getElementById('choose');
             if (selectedBar === null) {
-                info.innerHTML = 'ingen';
+                info.innerHTML = 'Ingen';
             }
             else {
                 info.innerHTML = `${barNo} `;
             }
-
-            
         }
     
         function createBar(number, barNo) {
             const width = 8;
             const spacing = 2;
-            let x = (barNo-0.8) * (width + spacing);
-            let height = number * 7;
+            let x = (barNo-1) * (width + spacing);
+            let height = number * 10;
             let y = 60 - height;
-            let color = calcColor(1, 10, barNo);
+            let color = calcColor(1, 4, barNo);
             let stroke;
             if (barNo == selectedBar){
                 stroke = "class='selected'"
             }
-            return `<rect onclick="chooseRect(${barNo})" width="${width}" height="${height}" ${stroke}
-            x="${x}" y="${y}" fill="${color}" ></rect>`;
+            return `<rect onclick="chooseRect(${barNo})" 
+            width="${width}" 
+            height="${height}" 
+            ${stroke}
+            x="${x}" y="${y}" 5
+            fill="${color}" ></rect>`;
+
         }
     
         function calcColor(min, max, val) {
-            var minHue = 200, maxHue = 0;
+            var minHue = 170, maxHue = 0;
             var curPercent = (val - min) / (max - min);
             var colString = "hsl(" + ((curPercent * (maxHue - minHue)) + minHue) + ",100%,50%)";
             return colString;
@@ -91,15 +114,38 @@
         }
 
         function remove() {
-            
+            numbers.splice(selectedBar-1, 1);
+            selectedBar = null;
+            button.disabled = true;
+            button2 .disabled = true;
+            showChart();
         }
         
         function change(){
-
+            let bar = selectedBar;
+            if (input.value >= min && input.value <= max)
+            numbers[selectedBar-1] = parseInt(input.value)
+            selectedBar = bar;
+            showChart(selectedBar);
         }
 
         function add(){
+            if (input.value >= min && input.value <= max)
+            numbers.push(parseInt(input.value))
+            
+            selectedBar = null;
+            button.disabled = true;
+            button2 .disabled = true;
+            
+            showChart();
+        }
+        function random(){
+            numbers.push(Math.floor(Math.random()*(max)+min));
+            selectedBar = null;
+            button.disabled = true;
+            button2 .disabled = true;
 
+            showChart();    
         }
     </script>
     
